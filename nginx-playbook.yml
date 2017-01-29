@@ -1,0 +1,13 @@
+- hosts: all
+
+  vars: 
+   - MyMessage: "Welcome to Ansible world!"
+   - DBMessage: "Hello from MongoDB"
+
+  tasks:
+   - name: Install EPEL release for nginx
+     yum: name=epel-release state=present
+   - name: Nginx setup
+     yum: name=nginx state=installed update_cache=true
+   - name: index.html copy
+     template: src=index.html.j2 dest=/usr/share/nginx/html/index.html

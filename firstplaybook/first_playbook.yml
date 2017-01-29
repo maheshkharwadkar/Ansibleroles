@@ -1,0 +1,5 @@
+  - name: Manage Tomcat
+    hosts: tomcat
+
+    roles:
+          - { role: tomcat, tags: ['tomcat'] }
